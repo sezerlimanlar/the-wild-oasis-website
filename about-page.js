@@ -1,7 +1,3 @@
-import Image from "next/image";
-import image1 from "@/public/about-1.jpg";
-import image2 from "@/public/about-2.jpg";
-
 export default function Page() {
   return (
     <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
@@ -33,14 +29,14 @@ export default function Page() {
       </div>
 
       <div className="col-span-2">
-        <Image
-          src={image1}
+        <img
+          src="/about-1.jpg"
           alt="Family sitting around a fire pit in front of cabin"
         />
       </div>
 
       <div className="col-span-2">
-        <Image src={image2} alt="Family that manages The Wild Oasis" />
+        <img src="/about-2.jpg" alt="Family that manages The Wild Oasis" />
       </div>
 
       <div className="col-span-3">
