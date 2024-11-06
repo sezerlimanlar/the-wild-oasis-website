@@ -1,14 +1,14 @@
-import React from "react";
+import React, { Suspense } from "react";
 import CabinCard from "@/app/_components/CabinCard";
 import { getCabins } from "../_lib/data-service";
+import CabinList from "../_components/CabinList";
+import Spinner from "../_components/Spinner";
 
 export const metadata = {
   title: "Cabins",
 };
 export default async function Page() {
   // CHANGE
-  const cabins = await getCabins();
-  console.log(cabins);
 
   return (
     <div>
@@ -24,13 +24,9 @@ export default async function Page() {
         to paradise.
       </p>
 
-      {cabins.length > 0 && (
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">
-          {cabins.map((cabin) => (
-            <CabinCard cabin={cabin} key={cabin.id} />
-          ))}
-        </div>
-      )}
+      <Suspense fallback={<Spinner />}>
+        <CabinList />
+      </Suspense>
     </div>
   );
 }
