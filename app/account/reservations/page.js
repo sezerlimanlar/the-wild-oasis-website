@@ -1,7 +1,6 @@
 import ReservationCard from "@/app/_components/ReservationCard";
 
-export default function Page() {
-  // CHANGE
+export default async function Page() {
   const bookings = [];
 
   return (
